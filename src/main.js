@@ -5,7 +5,7 @@ import store from "@/store";
 import '@/filters';
 import '@/vant';
 import 'amfe-flexible';
-import vconsole from 'vconsole';
+import vconsole from "vconsole";
 
 Vue.config.productionTip = false;
 Vue.prototype.$devicePixelRatio = window.devicePixelRatio
