@@ -10,13 +10,8 @@ const xhr = ({ url, body = {}, method = 'get', headers = {}, codeHandleList = nu
   // 参数处理
   url = url.replace(/\s+/g, '') // 去掉首尾空格
   method = method.toLowerCase()
+  // let host = process.env.VUE_APP_BASE_API_URL
   let host = ''
-  if (url.indexOf('miniapp') > 0) {
-    host = process.env.VUE_APP_APP_URL + 'helper-rest'
-  }else {
-    host = process.env.VUE_APP_BASE_API_URL
-  }
-
   let head = Object.assign(
     {
       'Content-Type': 'application/json; charset=UTF-8'
@@ -40,7 +35,7 @@ const xhr = ({ url, body = {}, method = 'get', headers = {}, codeHandleList = nu
         let resultBody = res.body
         let isOk = codeErrHandler(resultBody, codeHandleList) === true // typeof body.code === 'undefined' || body.code === '0'
         // 错误处理丢去控制类需要完整的信息,强行等于10000为暂时处理,后期优化 TODO
-        isOk ? (parseInt(res.body.returnCode) === 10000 ? resolve(resultBody.data) : resolve(resultBody)) : codeErrHandler(resultBody, codeHandleList)
+        isOk ? (parseInt(res.body.status) === 1 || parseInt(res.body.status) === 0 ? resolve(resultBody.t) : resolve(resultBody)) : codeErrHandler(resultBody, codeHandleList)
       } catch (error) {
         console.error(error)
       }

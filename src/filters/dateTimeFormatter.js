@@ -1,0 +1,30 @@
+
+/**
+ * 格式化时间
+ * @param  {String} time 时间
+ * @return {String}
+ */
+export default (time, separate = '/') => {
+    if (time.length >= 10) {
+        return time.substr(0, 10).replace(/-/g, separate)
+    }
+    return time
+  }
+
+//   switch (type) {
+//     case 0: // 03-15
+//       return `${zerofill(month)}${separate}${zerofill(day)}`
+//     case 1: // 11:12
+//       return `${zerofill(hours)}${separate}${zerofill(minutes)}`
+//     case 2: // 2017-03-15
+//       return `${year}${separate}${zerofill(month)}${separate}${zerofill(day)}`
+//     case 3: // 2017-03-15 11:12
+//       return `${year}${separate}${zerofill(month)}${separate}${zerofill(day)} ${zerofill(hours)}:${zerofill(minutes)}`
+//     case 4: // 03-15 11:12
+//       return `${zerofill(month)}${separate}${zerofill(day)} ${zerofill(hours)}:${zerofill(minutes)}`
+//     case 5: // 2017年03月15日
+//       return `${year}年${zerofill(month)}月${zerofill(day)}日`
+//     default:
+//       // 2017-03-15 11:12:13
+//       return `${year}${separate}${zerofill(month)}${separate}${zerofill(day)} ${zerofill(hours)}:${zerofill(minutes)}:${zerofill(second)}`
+//   }

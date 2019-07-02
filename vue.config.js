@@ -1,11 +1,14 @@
 var resolve = require('path').resolve
 
+let host = process.env.VUE_APP_BASE_API_URL
+
 module.exports = {
   productionSourceMap: false,
   devServer: {
-    host: '0.0.0.0',
-    port: 80,
-    disableHostCheck: true
+    proxy: host
+    // host: '0.0.0.0',
+    // port: 80,
+    // disableHostCheck: true
   },
 
   chainWebpack: config => {
