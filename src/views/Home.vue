@@ -1,38 +1,41 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/img/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img class="img" alt="Vue logo" src="../assets/img/logo.png" width="60px" height="60px" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-import HelloWorld from 'COMP/Common/HelloWorld'
-import HomeService from 'SERVICE/homeService';
+import HomeService from 'SERVICE/homeService'
 
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  },
-  data:() => ({
+  name: 'home',
+  components: {},
+  data: () => ({
     mobile: '13530744930'
   }),
   created() {
-    this.login()
-    this.cityIndexList()
+    // this.login()
+    // this.areaList()
+    this.getMember()
   },
   methods: {
     async login() {
       const res = await HomeService.login('', this.mobile)
       console.log(res)
     },
-    async cityIndexList() {
-      const res = await HomeService.cityIndexList()
+    async areaList() {
+      const res = await HomeService.areaList()
+      console.log(res)
+    },
+    async getMember() {
+      const res = await HomeService.getMember('35')
       console.log(res)
     }
-
   }
-};
+}
 </script>
+<style lang="less" scoped>
+
+</style>
+

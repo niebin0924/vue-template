@@ -20,21 +20,29 @@ class HomeService {
     }
 
     /**
-     * 城市索引列表
+     * 区域列表
      * @param {*} areaCode 
      * @param {*} cityName 
      */
-    cityIndexList(areaCode='', cityName='') {
+    areaList(areaCode='', cityName='') {
         return xhr({
             method: 'POST',
-            url: '/f/api/commonFacade/cityIndexList',
+            url: '/f/api/commonFacade/areaList',
             body: {
                 areaCode,
                 cityName
             }
         })
     }
-
+    getMember(id) {
+        return xhr({
+            method: 'POST',
+            url: '/f/api/memberFacade/getMember',
+            body: {
+                id
+            }
+        })
+    }
 }
 
 

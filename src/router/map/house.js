@@ -6,14 +6,6 @@ export default [
       meta: {
         title: '首页'
       }
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: resolve => require(['@/views/About.vue'], resolve),
-      meta: {
-        title: '关于'
-      }
     }
     // {
     //   path: '/city-list',

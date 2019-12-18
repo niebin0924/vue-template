@@ -12,7 +12,7 @@ export default (msg, url) => {
         return false
       default:
         console.error(msg)
-        window.vue.$toast(msg.message)
+        // this.$toast(msg.responseMessage)
         return false
     }
   }
